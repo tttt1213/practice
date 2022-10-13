@@ -33,6 +33,14 @@ remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
 branch.main.remote=origin
 branch.main.merge=refs/heads/main
 
+#ローカルディレクトリでファイル作成
+touch git_practice
+
+#ローカルリポジトリに追加したい対象を指定してステージング
+git add git_practice
+
+
+
 
 #リモートのブランチ一覧
 git branch -r
