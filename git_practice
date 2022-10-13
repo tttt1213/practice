@@ -1,0 +1,38 @@
+#!/bin/bash
+
+#参考資料
+https://www.slideshare.net/matsukaz/git-17499005
+
+#
+#リモートリポジトリ
+#
+
+#tttt1213ユーザーでリモートリポジトリ"practice"は作成済のものとする(パブリック権限)
+#リモートリポジトリからローカルにリポジトリをクローン
+git clone https://github.com/tttt1213/practice
+
+#config確認 configには3種の設定ファイルがある
+#全ての設定ファイルの項目表示
+git config -l
+
+#システム全体（全ユーザーの全リポジトリ） /etc/gitconfig
+git config --system  -l
+#なし
+
+#--global 該当ユーザーの全リポジトリ ~/.gitconfig
+user.name=tttt1213
+user.email=mori.takuro.sw@gmail.com
+
+#--local 該当リポジトリ ~/work/practice/.git/config	
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.url=https://github.com/tttt1213/practice.gi
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.main.remote=origin
+branch.main.merge=refs/heads/main
+
+
+#リモートのブランチ一覧
+git branch -r
