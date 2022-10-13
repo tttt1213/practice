@@ -3,9 +3,21 @@
 #参考資料
 https://www.slideshare.net/matsukaz/git-17499005
 
-#
-#リモートリポジトリ
-#
+#add
+ローカルディレクトリ=>ステージングエリア
+
+#commit 
+ステージングエリア=>ローカルリポジトリ
+
+#push 
+ローカルリポジトリ=>リモートリポジトリ
+
+#fetch
+リモートリポジトリ=>ローカルリポジトリ
+
+#merge 
+ローカルリポジトリ=>ローカルディレクトリ
+
 
 #tttt1213ユーザーでリモートリポジトリ"practice"は作成済のものとする(パブリック権限)
 #リモートリポジトリからローカルにリポジトリをクローン
@@ -33,14 +45,53 @@ remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
 branch.main.remote=origin
 branch.main.merge=refs/heads/main
 
+#
+#ローカルディレクトリとローカルリポジトリあたりでの
+#ファイル操作
+#
+
 #ローカルディレクトリでファイル作成
 touch git_practice
 
 #ローカルリポジトリに追加したい対象を指定してステージング
 git add git_practice
 
+#ステージングエリアの更新内容をローカルリポジトリに登録
+git commit -m "任意のcomment"
 
+#ローカルディレクトリとステージングエリアからファイル削除
+git rm gomi
 
+#ステージングエリアをローカルリポジトリの状態に戻す
+git reset ( --hard )HEAD gomi
+
+#ローカルディレクトリをステージングエリアの状態に戻す
+git checkout -- gomi
+
+#ワークツリーの状態を見る
+git status
+
+#コミットログを見る
+git logs
+
+############
+############
+############
+#ブランチ:メインとは別の流れで作業を続ける機能
+#main(master)ブランチ:デフォルトブランチ、commitで更新されていく
+#HEADブランチ:現在作業中のブランチ(結果としてmasterと同じ場所を指すことが多い)、commitで更新されていく
+
+#ブランチの確認
+git branch -a #すべて?のブランチ
 
 #リモートのブランチ一覧
 git branch -r
+
+
+#ブランチの作成(developという名のブランチを作成)
+git branch develop
+
+#作業中のブランチを切り替え
+git checkout develop
+    or 
+git switch devekop
