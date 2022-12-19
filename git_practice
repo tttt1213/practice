@@ -95,3 +95,27 @@ git branch develop
 git checkout develop
     or 
 git switch devekop
+
+
+#main ブランチでファイル作成
+git checkout main 
+echo "main" > main 
+git add .
+git commit -m "add main file"
+
+
+#practice_B ブランチでファイル作成
+git checkout main 
+echo "practice_B" > main 
+git add .
+git commit -m "add practice_B file"
+
+
+#mainブランチにpractice_Bブランチをマージ
+git checkout main
+git merge practice_B
+
+
+
+
+
